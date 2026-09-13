@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+<table>
+<tr>
+<th>ID</th>
+<th>Subject</th>
+<th>Description</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+{% for ticket in tickets %}
+<tr>
+<td>{{ ticket["id"] }}</td>
+<td>{{ ticket["subject"] }}</td>
+<td>{{ ticket["description"] }}</td>
+<td>
+<form action="/admin/update/{{ ticket['id'] }}" method="POST">
+<select name="status">
+<option value="Open">Open</option>
+<option value="In Progress">In Progress</option>
+<option value="Resolved">Resolved</option>
+</select>
+<button type="submit">Update</button>
+</form>
+</td>
+<td>
+<a href="/admin/delete/{{ ticket['id'] }}" onclick="return confirmDelete();">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+<a href="/">Back to Home</a>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Submitted Tickets</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<h1>Submitted Tickets</h1>
+<table>
+<tr>
+<th>ID</th>
+<th>Subject</th>
+<th>Description</th>
+<th>Status</th>
+<th>Created At</th>
+</tr>
+{% for ticket in tickets %}
+<tr>
+<td>{{ ticket["id"] }}</td>
+<td>{{ ticket["subject"] }}</td>
+<td>{{ ticket["description"] }}</td>
+<td>{{ ticket["status"] }}</td>
+<td>{{ ticket["created_at"] }}</td>
+</tr>
+{% endfor %}
+</table>
+<a href="/">Back to Home</a>
+</body>
+</html>
