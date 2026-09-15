@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/ticketing-system
+cd /mnt/c/Users/1746s/OneDrive/Documents/ticketing-system/ticketing-system
 git pull origin main
 docker stop ticketing_app || true
 docker rm ticketing_app || true
